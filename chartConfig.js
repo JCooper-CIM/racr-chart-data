@@ -200,9 +200,9 @@ fetch('https://x8ki-letl-twmt.n7.xano.io/api:x7PovgWp/tax_illustration', {
     .then((data) => {
     const years = data.map(item => item.Year);
     const ordinary = data.map(item => item.Ordinary);
-    const _50RoC = data.map(item => item.50RoC);
-    const _100RoC = data.map(item => item.100RoC);
-    const _100RoCStep = data.map(item => item.100RoCStep);
+    const _50RoC = data.map(item => item._50RoC);
+    const _100RoC = data.map(item => item._100RoC);
+    const _100RoCStep = data.map(item => item._100RoCStep);
     const growthChart = document.getElementById('taxChart');
 
     new Chart(taxChart, {
@@ -224,6 +224,11 @@ fetch('https://x8ki-letl-twmt.n7.xano.io/api:x7PovgWp/tax_illustration', {
         data: _100RoC,
         backgroundColor: '#b8dde7',
         borderColor: '#b8dde7'
+        }, {
+        label: '100% Return of Capital w/Step-Up',
+        data: _100RoCStep,
+        backgroundColor: '#00677f',
+        borderColor: '#00677f'
         }]
     },
     options: {
